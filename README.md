@@ -31,6 +31,20 @@ The main experience in this repository is `LabScene 2 Free`, a free-order chemis
 - **Resettable live lab state**  
   The free-lab scene can be restored without reloading the entire scene.
 
+## Experiment Gallery
+
+The repository includes the experiment visuals currently used by the project for the four guided reactions in `LabScene 2 Free`.
+
+| Copper oxide + sulfuric acid | Sodium bicarbonate + hydrochloric acid |
+| --- | --- |
+| ![Copper oxide and sulfuric acid experiment visual](docs/images/experiments/copper-oxide-sulfuric-acid.png) | ![Sodium bicarbonate and hydrochloric acid experiment visual](docs/images/experiments/sodium-bicarbonate-hydrochloric-acid.png) |
+| `CuO + H2SO4 = CuSO4 + H2O` | `NaHCO3 + HCl = NaCl + H2O + CO2` |
+
+| Aluminum + iodine + water | Calcium oxide + water |
+| --- | --- |
+| ![Aluminum iodine water experiment visual](docs/images/experiments/aluminum-iodine-water.png) | ![Calcium oxide and water experiment visual](docs/images/experiments/calcium-oxide-water.png) |
+| `2Al + 3I2 = 2AlI3` | `CaO + H2O = Ca(OH)2` |
+
 ## Experience Summary
 
 The current free-lab flow is designed around:
