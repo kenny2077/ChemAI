@@ -1,12 +1,12 @@
 # ChemAI
 
-ChemAI is a Unity VR chemistry lab for Meta Quest 3. It combines interactive experiment stations, grab-and-pour lab manipulation, and a voice-first AI assistant that can listen to student questions, reason over the live simulation state, and answer back with synthesized speech inside the headset.
+ChemAI is a Unity VR chemistry lab for Meta Quest 3. It combines interactive chemistry stations, grab-and-pour object handling, and a voice-first AI assistant that can listen to student questions, reason over the live simulation state, and answer with synthesized speech inside the headset.
 
-This repository contains the source-only version of the project: Unity scenes, runtime scripts, assets, package manifests, and project settings. Generated Unity cache folders, packaged APKs, archives, and live API credentials are intentionally excluded from the publishable repo.
+This public repository contains the source-only release of the project: Unity scenes, runtime scripts, assets, package manifests, and project settings. Generated Unity cache folders, packaged APKs, archives, and live API credentials are intentionally excluded.
 
 ## Overview
 
-The main experience in this project is `LabScene 2 Free`, a free-order chemistry lab where four reaction stations are active at the same time. Students can move between stations, perform the intended experiment sequence at each one, and ask ChemAI for guidance about:
+The main experience in this repository is `LabScene 2 Free`, a free-order chemistry lab where four reaction stations are active at the same time. Students can move between stations, perform the intended experiment sequence at each one, and ask ChemAI for guidance about:
 
 - what to do next
 - which reagent is missing
@@ -14,17 +14,7 @@ The main experience in this project is `LabScene 2 Free`, a free-order chemistry
 - what a visible change means
 - whether an attempted action is unsafe or invalid
 
-## Demo Experience
-
-The current free-lab flow is designed around:
-
-- four intended chemistry stations placed around the table
-- one blocked dangerous false experiment
-- a ChemAI terminal that displays responses near the robot response area
-- spoken AI feedback through Azure OpenAI speech synthesis
-- independent station failure handling so one mistake does not end the whole lab
-
-## Key Features
+## Highlights
 
 - **Voice-first ChemAI assistant**  
   Uses speech-to-text, state-aware response generation, and text-to-speech playback.
@@ -41,57 +31,24 @@ The current free-lab flow is designed around:
 - **Resettable live lab state**  
   The free-lab scene can be restored without reloading the entire scene.
 
+## Experience Summary
+
+The current free-lab flow is designed around:
+
+- four intended chemistry stations placed around the table
+- one blocked dangerous false experiment
+- a ChemAI terminal that displays responses near the robot response area
+- spoken AI feedback through Azure OpenAI speech synthesis
+- independent station failure handling so one mistake does not end the whole lab
+
 ## Chemistry Stations
 
-### 1. Sulfuric acid + copper oxide
-
-**Equation:** `H2SO4 + CuO = CuSO4 + H2O`
-
-**Expected flow:**
-- pour sulfuric acid into the receiving beaker
-- add copper oxide
-
-**Observable behavior:**
-- the receiving substance changes through staged material transitions
-- the station resolves as a copper(II) sulfate reaction
-
-### 2. Hydrochloric acid + sodium bicarbonate
-
-**Equation:** `HCl + NaHCO3 = NaCl + H2O + CO2`
-
-**Expected flow:**
-- pour hydrochloric acid into the receiving beaker
-- add sodium bicarbonate
-
-**Observable behavior:**
-- visible bubbling or explosion-like effect
-- carbon dioxide release is reflected in the station completion feedback
-
-### 3. Aluminum + iodine, then water
-
-**Equation:** `2Al + 3I2 = 2AlI3`
-
-**Expected flow:**
-- add aluminum to the crystallizing dish
-- add iodine
-- use the pipette to add water after both solids are present
-
-**Observable behavior:**
-- powder state changes over time
-- staged particle and heat-like effects after activation
-
-### 4. Calcium oxide + water
-
-**Equation:** `CaO + H2O = Ca(OH)2`
-
-**Expected flow:**
-- pour water into the Berzelius beaker
-- add calcium oxide
-- test the resulting substance with red litmus paper
-
-**Observable behavior:**
-- calcium hydroxide forms in the beaker
-- the litmus interaction demonstrates basicity
+| Station | Intended sequence | Equation | Main observable behavior |
+| --- | --- | --- | --- |
+| Sulfuric acid + copper oxide | Pour sulfuric acid, then add copper oxide | `H2SO4 + CuO = CuSO4 + H2O` | Staged material transitions in the receiving beaker |
+| Hydrochloric acid + sodium bicarbonate | Pour hydrochloric acid, then add sodium bicarbonate | `HCl + NaHCO3 = NaCl + H2O + CO2` | Bubbling / explosion-style effect with carbon dioxide release |
+| Aluminum + iodine + water | Add aluminum, add iodine, then add water with the pipette | `2Al + 3I2 = 2AlI3` | Powder-state changes and dramatic particle effects |
+| Calcium oxide + water | Pour water, add calcium oxide, then test with red litmus paper | `CaO + H2O = Ca(OH)2` | Calcium hydroxide formation and litmus-based basicity check |
 
 ## Safety Model
 
@@ -100,6 +57,7 @@ The free-lab implementation supports both hard failures and softer safety remind
 ### Station failures
 
 Examples:
+
 - contaminating the copper sulfate station with the wrong solid
 - contaminating the sodium chloride station with the wrong solid
 - adding pipette water too early in the aluminum iodide station
@@ -120,6 +78,7 @@ This is not part of the intended curriculum for `LabScene 2 Free`. If the sulfur
 > Do not add aluminum powder to sulfuric acid in this lab. That combination can produce hydrogen gas, which is highly flammable.
 
 The warning is intended to:
+
 - appear in the ChemAI response panel
 - be spoken by ChemAI
 - leave the station playable
@@ -140,7 +99,7 @@ At runtime, ChemAI can combine:
 - deterministic local fallback logic for common step-by-step questions
 - proactive state-triggered hints and warnings
 
-## Project Structure
+## Repository Layout
 
 Main source directories:
 
@@ -160,7 +119,7 @@ Important runtime scripts for the free-lab experience:
 - `Assets/Scripts/LabScene2ChemAgentManager.cs`
 - `Assets/Scripts/LabScene2AzureOpenAIClient.cs`
 
-## Setup
+## Quick Start
 
 ### Unity version
 
@@ -170,29 +129,31 @@ This project is currently pinned to:
 
 ### Open the project
 
-Open the repository root in Unity Hub using the pinned Unity version. For a clean clone or handoff, the required source folders are:
+1. Open the repository root in Unity Hub using the pinned Unity version.
+2. Let Unity regenerate local folders such as `Library/`, `Logs/`, and `UserSettings/`.
+3. Open `Assets/Scenes/LabScene 2 Free.unity`.
+
+For a clean clone or handoff, the required source folders are:
 
 - `Assets/`
 - `Packages/`
 - `ProjectSettings/`
 
-Unity will regenerate local folders such as `Library/`, `Logs/`, and `UserSettings/`.
+## Local ChemAI Configuration
 
-## Privacy and Local Configuration
-
-This repo is intentionally published without live OpenAI credentials.
-
-### Local ChemAI config
+This repository is intentionally published without live OpenAI credentials.
 
 The committed template file is:
 
 - `Assets/Resources/LabScene2OpenAIConfigTemplate.json`
 
-To enable ChemAI locally, create an untracked file named:
+To enable ChemAI locally:
 
-- `Assets/Resources/LabScene2OpenAIConfigLocal.json`
+1. Copy the template into a new file named `Assets/Resources/LabScene2OpenAIConfigLocal.json`
+2. Fill in your own Azure OpenAI endpoint and key
+3. Keep that local file out of version control
 
-with this structure:
+Example structure:
 
 ```json
 {
@@ -207,15 +168,16 @@ with this structure:
 
 `LabScene2ChemAgentManager` will load this local resource at runtime if it exists. The local config file is ignored by git and should never be committed.
 
-### Ignored local artifacts
+## Repo Hygiene
 
 The repository is configured to exclude:
 
 - Unity-generated folders such as `Library/`, `Logs/`, and `UserSettings/`
 - packaged builds such as `.apk`
 - local archives such as `.zip`
+- local recovery artifacts
 - the local ChemAI credential file
 
 ## Build Target
 
-The active target experience for this repo is a Meta Quest 3 VR chemistry lab, with `LabScene 2 Free` as the main free-play chemistry scene.
+The active target experience for this repository is a Meta Quest 3 VR chemistry lab, with `LabScene 2 Free` as the main free-play chemistry scene.

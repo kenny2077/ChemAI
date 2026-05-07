@@ -1,0 +1,30 @@
+* text=auto
+
+*.cs diff=csharp
+*.shader text
+*.cginc text
+*.hlsl text
+
+*.meta text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+*.asset text eol=lf
+*.mat text eol=lf
+*.anim text eol=lf
+*.controller text eol=lf
+*.overrideController text eol=lf
+*.physicsMaterial2D text eol=lf
+*.playable text eol=lf
+*.guiskin text eol=lf
+*.inputactions text eol=lf
+
+*.fbx binary
+*.glb binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.tif binary
+*.tiff binary
+*.wav binary
+*.mp3 binary
+*.pdf binary
