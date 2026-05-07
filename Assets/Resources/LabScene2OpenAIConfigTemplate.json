@@ -1,0 +1,8 @@
+{
+  "endpoint": "https://your-resource-name.openai.azure.com/openai/v1",
+  "apiKey": "replace-with-your-azure-openai-key",
+  "chatModel": "gpt-5",
+  "ttsModel": "gpt-4o-mini-tts",
+  "transcriptionModel": "gpt-4o-mini-transcribe",
+  "voice": "alloy"
+}
